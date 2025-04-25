@@ -1,0 +1,71 @@
+<?php
+// Include the database connection file
+include '../config/db_connection.php'; // Ensure the path is correct
+
+// Full path to the uploads directory (relative path)
+$target_dir = "./uploads/";
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $cheque_number = $_POST['cheque_number'];
+    $cheque_to = $_POST['cheque_to'];
+    $date = $_POST['date'];
+    $bank = $_POST['bank'];
+    $comments = $_POST['comments'];
+
+    // Initialize file_path as NULL (for cases where no file is uploaded)
+    $file_path = null;
+
+    // Handle file upload (optional)
+    if (isset($_FILES["cheque_file"]) && $_FILES["cheque_file"]["error"] == 0) {
+        $file_name = basename($_FILES["cheque_file"]["name"]);
+        $target_file = $target_dir . $file_name;
+        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Validate file type (only allow JPG, PNG, PDF)
+        $allowed_types = array("jpg", "jpeg", "png", "pdf");
+        if (in_array($file_type, $allowed_types)) {
+            // Move file to the target directory
+            if (move_uploaded_file($_FILES["cheque_file"]["tmp_name"], $target_file)) {
+                $file_path = $target_file; // Save the file path in the database
+            } else {
+                echo "Error uploading the file.";
+                exit;
+            }
+        } else {
+            echo "Invalid file type. Only JPG, PNG, and PDF files are allowed.";
+            exit;
+        }
+    }
+
+    try {
+        // Prepare SQL statement with an additional field for the file path (if any)
+        $sql = "INSERT INTO cheques (cheque_number, cheque_to, date, bank, comments, file_path) 
+                VALUES (:cheque_number, :cheque_to, :date, :bank, :comments, :file_path)";
+
+        // Prepare the statement
+        $stmt = $pdo->prepare($sql);
+
+        // Bind parameters
+        $stmt->bindParam(':cheque_number', $cheque_number);
+        $stmt->bindParam(':cheque_to', $cheque_to);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':bank', $bank);
+        $stmt->bindParam(':comments', $comments);
+        $stmt->bindParam(':file_path', $file_path); // Save the file path or NULL if no file
+
+        // Execute the query
+        $stmt->execute();
+
+        // Success message
+        echo "<script>alert('Cheque details submitted successfully!'); window.location.href='../api/admin_entry_cheque.php';</script>";
+    } catch (PDOException $e) {
+        // Handle error
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+// Close connection (not strictly necessary with PDO)
+$pdo = null;
+?>
