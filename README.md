@@ -1,7 +1,7 @@
 # 💼 Bill Management System
 
 A web-based app for managing bill approvals in organizations. It supports User, Admin, and Super Admin roles to ensure secure, role-based workflows for submitting, approving, and rejecting bills with instant feedback.
-🔑 Features
+🔑Features
 - Role-based login & access control
 - Bill submission with file uploads
 - Approval/rejection with comments
@@ -9,6 +9,11 @@ A web-based app for managing bill approvals in organizations. It supports User, 
 - Real-time status tracking
   #VIDEO DEMONSTRATION:
 https://github.com/user-attachments/assets/f4f8c736-9435-44df-9010-aac6850ba6cf
+#PROJECT REPORT/PPT
+
+[Project BMS Report.docx](https://github.com/user-attachments/files/19921239/Project.BMS.Report.docx)
+
+[BMS PPT.pptx](https://github.com/user-attachments/files/19921236/BMS.PPT.pptx)
 
 #OUTPUT SNAPSHOTS
 ![user ss](https://github.com/user-attachments/assets/1b764ca4-556a-4319-9620-7809b25ce9f0)
