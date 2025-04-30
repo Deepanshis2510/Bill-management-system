@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/f4f8c736-9435-44df-9010-aac6850ba6cf
 [Project BMS Report.docx]  [Project BMS Report.docx](https://github.com/user-attachments/files/19979568/Project.BMS.Report.docx)
 
 [BMS PPT.pptx](https://github.com/user-attachments/files/19921236/BMS.PPT.pptx)
-[CERTIFICATE] ![certificate](https://github.com/user-attachments/assets/fdf3eb8f-7e60-4b70-aee4-1fa6c8c6005f)
+[CERTIFICATE] [certificate.pdf](https://github.com/user-attachments/files/19979633/certificate.pdf)
 
 
 
