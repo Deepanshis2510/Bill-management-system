@@ -16,6 +16,9 @@ https://github.com/user-attachments/assets/f4f8c736-9435-44df-9010-aac6850ba6cf
 [BMS PPT.pptx](https://github.com/user-attachments/files/19921236/BMS.PPT.pptx)
 [CERTIFICATE] [certificate.pdf](https://github.com/user-attachments/files/19979633/certificate.pdf)
 
+Project Use Case & Deployment Confirmation Certificate [CERTIFICATE FINAL.docx](https://github.com/user-attachments/files/19980037/CERTIFICATE.FINAL.docx)
+
+
 
 
 #OUTPUT SNAPSHOTS
